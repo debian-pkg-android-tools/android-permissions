@@ -8,7 +8,7 @@ Vcs-Git: git://anonscm.debian.org/collab-maint/android-permissions.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/android-permissions.git
 
 Package: android-permissions
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: create groups that represent Android permissions
  Android is based on the Linux kernel, but is not otherwise a UNIX operating
