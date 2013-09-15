@@ -1,5 +1,5 @@
 Source: android-permissions
-Section: unknown
+Section: utils
 Priority: extra
 Maintainer: Hans-Christoph Steiner <hans@eds.org>
 Build-Depends: debhelper (>= 8.0.0)
