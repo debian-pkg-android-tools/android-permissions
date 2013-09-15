@@ -9,7 +9,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/android-permission
 
 Package: android-permissions
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}
 Description: create groups that represent Android permissions
  Android is based on the Linux kernel, but is not otherwise a UNIX operating
  system. That means that Debian can be installed in parallel with Android,
