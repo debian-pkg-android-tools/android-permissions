@@ -1,0 +1,6 @@
+*~
+# Debian build products
+debian/android-permissions/
+debian/android-permissions.debhelper.log
+debian/android-permissions.substvars
+debian/files
