@@ -25,53 +25,53 @@ usergroupadd() {
 
 case "$1" in
     configure)
+
 	# Add UID/GID values statically defined in Bionic Libc
-	usergroupadd 1000 system       # system server
-	usergroupadd 1001 radio        # telephony subsystem, RIL
-	usergroupadd 1002 bluetooth    # bluetooth subsystem
-	usergroupadd 1003 graphics     # graphics devices
-	usergroupadd 1004 input        # input devices
-	usergroupadd 1005 a_audio      # Android audio devices (audio GID exists on Debian)
-	usergroupadd 1006 camera       # camera devices
-	usergroupadd 1007 log          # log devices
-	usergroupadd 1008 compass      # compass device
-	usergroupadd 1009 mount        # mountd socket
-	usergroupadd 1010 wifi         # wifi subsystem
-	usergroupadd 1011 adb          # android debug bridge (adbd)
-	usergroupadd 1012 install      # group for installing packages
-	usergroupadd 1013 media        # mediaserver process
-	usergroupadd 1014 dhcp         # dhcp client
-	usergroupadd 1015 sdcard_rw    # external storage write access
-	usergroupadd 1016 vpn          # vpn system
-	usergroupadd 1017 keystore     # keystore subsystem
+	    usergroupadd 1000 system       # system server
+	    usergroupadd 1001 radio        # telephony subsystem, RIL
+	    usergroupadd 1002 bluetooth    # bluetooth subsystem
+	    usergroupadd 1003 graphics     # graphics devices
+	    usergroupadd 1004 input        # input devices
+	    usergroupadd 1005 a_audio      # Android audio devices (audio GID exists on Debian)
+	    usergroupadd 1006 camera       # camera devices
+	    usergroupadd 1007 log          # log devices
+	    usergroupadd 1008 compass      # compass device
+	    usergroupadd 1009 mount        # mountd socket
+	    usergroupadd 1010 wifi         # wifi subsystem
+	    usergroupadd 1011 adb          # android debug bridge (adbd)
+	    usergroupadd 1012 install      # group for installing packages
+	    usergroupadd 1013 media        # mediaserver process
+	    usergroupadd 1014 dhcp         # dhcp client
+	    usergroupadd 1015 sdcard_rw    # external storage write access
+	    usergroupadd 1016 vpn          # vpn system
+	    usergroupadd 1017 keystore     # keystore subsystem
 	# Next 3 are unimplemented on SGT(Froyo), 1018 is fm_radio on Huawei S7
-	usergroupadd 1018 usb          # USB devices
-	usergroupadd 1021 gps          # GPS daemon
-	usergroupadd 1022 nfc          # nfc subsystem
+	    usergroupadd 1018 usb          # USB devices
+	    usergroupadd 1021 gps          # GPS daemon
+	    usergroupadd 1022 nfc          # nfc subsystem
 	# End Gingerbread specific
-	usergroupadd 2000 shell        # adb and debug shell user
-	usergroupadd 2001 cache        # cache access
-	usergroupadd 2002 diag         # access to diagnostic resources
-	usergroupadd 3001 net_bt_admin # bluetooth: create any socket
-	usergroupadd 3002 net_bt       # bluetooth: create sco, rfcomm or l2cap sockets
-	usergroupadd 3003 inet         # can create AF_INET and AF_INET6 sockets
-	usergroupadd 3004 net_raw      # can create raw INET sockets
-	usergroupadd 3005 net_admin    # can configure interfaces and routing tables.
-	usergroupadd 9998 misc         # access to misc storage
-	usergroupadd 9999 a_nobody     # Android nobody (nobody UID exists on Debian)
+	    usergroupadd 2000 shell        # adb and debug shell user
+	    usergroupadd 2001 cache        # cache access
+	    usergroupadd 2002 diag         # access to diagnostic resources
+	    usergroupadd 3001 net_bt_admin # bluetooth: create any socket
+	    usergroupadd 3002 net_bt       # bluetooth: create sco, rfcomm or l2cap sockets
+	    usergroupadd 3003 inet         # can create AF_INET and AF_INET6 sockets
+	    usergroupadd 3004 net_raw      # can create raw INET sockets
+	    usergroupadd 3005 net_admin    # can configure interfaces and routing tables.
+	    usergroupadd 9998 misc         # access to misc storage
+	    usergroupadd 9999 a_nobody     # Android nobody (nobody UID exists on Debian)
 
 	# Create new users/groups with 5000-9999. Note, that interactive UID/GID on Android is 10000+random
-	sed -i -e '
-		s/^[[:space:]]*\([GU]ID_MIN[[:space:]]\+\)[[:digit:]]\+/\15000/
-		s/^[[:space:]]*\([GU]ID_MAX[[:space:]]\+\)[[:digit:]]\+/\18999/
-	' /etc/login.defs
-
-	sed -i -e '
-		s/^[[:space:]]*\(FIRST_[GU]ID[[:space:]]*=[[:space:]]*\)[[:digit:]]\+/\15000/
-		s/^[[:space:]]*\(LAST_[GU]ID[[:space:]]*=[[:space:]]*\)[[:digit:]]\+/\18999/
-		s/^[[:space:]]*#\?[[:space:]]*\(ADD_EXTRA_GROUPS[[:space:]]*=[[:space:]]*\)[[:digit:]]\+/\11/
-		s/^[[:space:]]*#\?[[:space:]]*\(EXTRA_GROUPS[[:space:]]*=[[:space:]]*\).*/\1"shell graphics input log adb sdcard_rw net_bt_admin net_bt inet"/
-	' /etc/adduser.conf
+	    sed -i -e '
+		    s/^[[:space:]]*\([GU]ID_MIN[[:space:]]\+\)[[:digit:]]\+/\15000/
+		    s/^[[:space:]]*\([GU]ID_MAX[[:space:]]\+\)[[:digit:]]\+/\18999/
+        ' /etc/login.defs
+	    sed -i -e '
+		    s/^[[:space:]]*\(FIRST_[GU]ID[[:space:]]*=[[:space:]]*\)[[:digit:]]\+/\15000/
+		    s/^[[:space:]]*\(LAST_[GU]ID[[:space:]]*=[[:space:]]*\)[[:digit:]]\+/\18999/
+		    s/^[[:space:]]*#\?[[:space:]]*\(ADD_EXTRA_GROUPS[[:space:]]*=[[:space:]]*\)[[:digit:]]\+/\11/
+		    s/^[[:space:]]*#\?[[:space:]]*\(EXTRA_GROUPS[[:space:]]*=[[:space:]]*\).*/\1"shell graphics input log adb sdcard_rw net_bt_admin net_bt inet"/
+        ' /etc/adduser.conf
         ;;
     
     abort-upgrade|abort-remove|abort-deconfigure)
