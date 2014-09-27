@@ -63,6 +63,12 @@ case "$1" in
 	    usergroupadd 1029 clat         "clat part of nat464"
 	    usergroupadd 1030 loop_radio   "loop radio devices"
 	    usergroupadd 1031 media_drm    "MediaDrm plugins"
+	    usergroupadd 1032 package_info "access to installed package details"
+	    usergroupadd 1033 sdcard_pics  "external storage photos access"
+	    usergroupadd 1034 sdcard_ac    "external storage audio/video access"
+	    usergroupadd 1035 sdcard_all   "access all users external storage"
+	    usergroupadd 1036 logd         "log daemon"
+	    usergroupadd 1037 shared_relro "creator of shared GNU RELRO files"
 
 	    usergroupadd 2000 shell        "adb and debug shell user"
 	    usergroupadd 2001 cache        "cache access"
@@ -79,6 +85,7 @@ case "$1" in
 	    usergroupadd 3007 net_bw_acct   "change bandwidth statistics accounting"
 	    usergroupadd 3008 net_bt_stack  "bluetooth, access config files"
 
+	    usergroupadd 9997 everybody    "shared between all apps in the same profile"
 	    usergroupadd 9998 misc         "access to misc storage"
 	    usergroupadd 9999 a_nobody     "Android nobody (nobody UID exists on Debian)"
 
@@ -210,6 +217,18 @@ case "$1" in
         usergroupadd 100008 aid_user_0008   "Android account user 100008"
         usergroupadd 100009 aid_user_0009   "Android account user 100009"
         usergroupadd 100010 aid_user_0010   "Android account user 100010"
+
+        usergroupadd 50000 aid_shared_gid_0000   "Android shared gid for each user 50000"
+        usergroupadd 50001 aid_shared_gid_0001   "Android shared gid for each user 50001"
+        usergroupadd 50002 aid_shared_gid_0002   "Android shared gid for each user 50002"
+        usergroupadd 50003 aid_shared_gid_0003   "Android shared gid for each user 50003"
+        usergroupadd 50004 aid_shared_gid_0004   "Android shared gid for each user 50004"
+        usergroupadd 50005 aid_shared_gid_0005   "Android shared gid for each user 50005"
+        usergroupadd 50006 aid_shared_gid_0006   "Android shared gid for each user 50006"
+        usergroupadd 50007 aid_shared_gid_0007   "Android shared gid for each user 50007"
+        usergroupadd 50008 aid_shared_gid_0008   "Android shared gid for each user 50008"
+        usergroupadd 50009 aid_shared_gid_0009   "Android shared gid for each user 50009"
+        usergroupadd 50010 aid_shared_gid_0010   "Android shared gid for each user 50010"
 
 	# Create new users/groups with 5000-9999. Note, that interactive UID/GID on Android is 10000+random
 	    sed -i -e '
