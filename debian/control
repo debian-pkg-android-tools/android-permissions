@@ -10,20 +10,23 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/android-permission
 Package: android-permissions
 Architecture: all
 Depends: ${misc:Depends}
-Description: create groups that represent Android permissions
+Description: create gids that represent Android permissions
  Android is based on the Linux kernel, but is not otherwise a UNIX operating
  system. That means that Debian can be installed in parallel with Android,
- using the same kernel as Android.  Android uses Linux users and groups quite
- differently than GNU/Linux.  Each app has its own user account, and every
- part of that app runs as that user. Linux groups are used to represent system
+ using the same kernel as Android.  Android uses Linux uids and gids quite
+ differently than GNU/Linux.  Each app has its own uid and gid, and every part
+ of that app runs as that uid/gid. Linux groups are used to represent system
  permissions, like internet access.  This package sets up all of the Android
- persmissions groups in Debian so that you can easily give Debian processes
- Android permissions by adding the user that process runs as to the group that
- represented the permission.  Specifically, this package adds all groups for
- each ID in Android's system/core/include/private/android_filesystem_config.h
- to /etc/group.
+ permissions uids and gids in Debian so that you can easily give Debian
+ processes Android permissions by adding the user that process runs as to the
+ group that represents the permission, e.g. aid_inet for network access
+ permission.  Specifically, this package adds all uids and gids for each
+ permission listed in Android's
+ system/core/include/private/android_filesystem_config.h to /etc/passwd and
+ /etc/group.
  .
  This is required in Debian+Android setups created by Android apps such as
- Debian Kit and Lil' Debi.
+ Debian Kit and Lil' Debi.  This probably only makes sense to install on a
+ Debian chroot running on Android.
  .
  This package is based on Sven-Ola Tuecke's 'andromize' package.
