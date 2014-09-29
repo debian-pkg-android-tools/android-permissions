@@ -5,8 +5,8 @@ Maintainer: Android Tools <android-tools-devel@lists.alioth.debian.org>
 Uploaders: Hans-Christoph Steiner <hans@eds.org>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.5
-Vcs-Git: https://anonscm.debian.org/git/collab-maint/android-permissions.git
-Vcs-Browser: http://anonscm.debian.org/cgit/collab-maint/android-permissions.git
+Vcs-Git: https://anonscm.debian.org/git/android-tools/android-permissions.git
+Vcs-Browser: http://anonscm.debian.org/cgit/android-tools/android-permissions.git
 
 Package: android-permissions
 Architecture: all
