@@ -28,6 +28,7 @@ Description: create gids that represent Android permissions
  .
  This is required in Debian+Android setups created by Android apps such as
  Debian Kit and Lil' Debi.  This only makes sense to install on a Debian
- chroot running on Android.
+ chroot running on Android.  It should be installed as early as possible in
+ the install process to prevent conflicting user/group names with Debian.
  .
  This package is based on Sven-Ola Tuecke's 'andromize' package.
