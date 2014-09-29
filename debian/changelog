@@ -1,5 +1,5 @@
 android-permissions (0.1) unstable; urgency=low
 
-  * Initial Release.
+  * Initial Release (Closes: #763392)
 
- -- Hans-Christoph Steiner <hans@eds.org>  Sat, 14 Sep 2013 23:14:42 -0400
+ -- Hans-Christoph Steiner <hans@eds.org>  Mon, 29 Sep 2014 17:33:56 -0400
