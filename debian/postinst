@@ -20,7 +20,7 @@ set -e
 
 usergroupadd() {
 	grep -q ^$2: /etc/group || groupadd --system --gid $1  $2
-	grep -q ^$2: /etc/passwd || useradd --system --gid $1 -uid $1 --home /system --comment "$3"  $2
+	grep -q ^$2: /etc/passwd || useradd --system --gid $1 --uid $1 --home /system --comment "$3"  $2
 }
 
 case "$1" in
@@ -70,14 +70,14 @@ case "$1" in
 
     # The 3000 series are intended for use as supplemental group id's only.
     # They indicate special Android capabilities that the kernel is aware of.
-	    usergroupadd 3001 net_bt_admin "bluetooth: create any socket"
-	    usergroupadd 3002 net_bt       "bluetooth: create sco, rfcomm or l2cap sockets"
-	    usergroupadd 3003 inet         "can create AF_INET and AF_INET6 sockets"
-	    usergroupadd 3004 net_raw      "can create raw INET sockets"
-	    usergroupadd 3005 net_admin    "can configure interfaces and routing tables"
-	    usergroupadd 3006 net_bw_stats "read bandwidth statistics"
-	    usergroupadd 3007 net_bw_acct  "change bandwidth statistics accounting"
-	    usergroupadd 3008 net_bt_stack "bluetooth: access config files"
+	    usergroupadd 3001 net_bt_admin  "bluetooth, create any socket"
+	    usergroupadd 3002 net_bt        "bluetooth, create sco, rfcomm or l2cap sockets"
+	    usergroupadd 3003 inet          "can create AF_INET and AF_INET6 sockets"
+	    usergroupadd 3004 net_raw       "can create raw INET sockets"
+	    usergroupadd 3005 net_admin     "can configure interfaces and routing tables"
+	    usergroupadd 3006 net_bw_stats  "read bandwidth statistics"
+	    usergroupadd 3007 net_bw_acct   "change bandwidth statistics accounting"
+	    usergroupadd 3008 net_bt_stack  "bluetooth, access config files"
 
 	    usergroupadd 9998 misc         "access to misc storage"
 	    usergroupadd 9999 a_nobody     "Android nobody (nobody UID exists on Debian)"
