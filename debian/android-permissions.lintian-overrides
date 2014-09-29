@@ -1,0 +1,5 @@
+# the word 'service' is included in a string that is an argument to a function
+# in the postinst script
+android-permissions: maintainer-script-should-not-use-service
+# This package just exists to set up the Android uids and gids
+android-permissions: empty-binary-package
