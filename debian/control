@@ -10,6 +10,7 @@ Vcs-Browser: http://anonscm.debian.org/cgit/collab-maint/android-permissions.git
 Package: android-permissions
 Architecture: all
 Depends: ${misc:Depends}
+Conflicts: linux-image, linux-image-generic
 Description: create gids that represent Android permissions
  Android is based on the Linux kernel, but is not otherwise a UNIX operating
  system. That means that Debian can be installed in parallel with Android,
@@ -26,7 +27,7 @@ Description: create gids that represent Android permissions
  /etc/group.
  .
  This is required in Debian+Android setups created by Android apps such as
- Debian Kit and Lil' Debi.  This probably only makes sense to install on a
- Debian chroot running on Android.
+ Debian Kit and Lil' Debi.  This only makes sense to install on a Debian
+ chroot running on Android.
  .
  This package is based on Sven-Ola Tuecke's 'andromize' package.
