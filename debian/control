@@ -13,23 +13,29 @@ Architecture: all
 Depends: ${misc:Depends}
 Conflicts: linux-image, linux-image-generic
 Description: create gids that represent Android permissions
- Android is based on the Linux kernel, but is not otherwise a UNIX operating
+ This package sets up Android permissions in a Debian chroot to provide good
+ integration into a host Android system.  It must be installed as early as
+ possible in the process of setting up the chroot, ideally using debootstrap's
+ --include= flag or something like that.  Uninstalling this package will not
+ remove the users and groups it creates since they are required for normal
+ operation of the Debian chroot.
+ .
+ Android is based on the Linux kernel, but is not a UNIX operating
  system. That means that Debian can be installed in parallel with Android,
  using the same kernel as Android.  Android uses Linux uids and gids quite
  differently than GNU/Linux.  Each app has its own uid and gid, and every part
- of that app runs as that uid/gid. Linux groups are used to represent system
- permissions, like internet access.  This package sets up all of the Android
- permissions uids and gids in Debian so that you can easily give Debian
- processes Android permissions by adding the user that process runs as to the
- group that represents the permission, e.g. aid_inet for network access
- permission.  Specifically, this package adds all uids and gids for each
- permission listed in Android's
- system/core/include/private/android_filesystem_config.h to /etc/passwd and
- /etc/group.
+ of that app runs as that uid/gid, providing "sandboxing" between apps. Linux
+ groups are also used to represent system permissions, like internet access.
+ This package sets up all of the Android permissions uids and gids in Debian
+ so that you can easily give Debian processes Android permissions by adding
+ that process's uid to the group that represents the permission, e.g. a uid
+ must be included in the "inet" group/permission in order to have network
+ access.  Specifically, this package adds all uids and gids for everything
+ listed in Android's system/core/include/private/android_filesystem_config.h.
  .
  This is required in Debian+Android setups created by Android apps such as
  Debian Kit and Lil' Debi.  This only makes sense to install on a Debian
- chroot running on Android.  It should be installed as early as possible in
+ chroot running on Android.  It needs to be installed as early as possible in
  the install process to prevent conflicting user/group names with Debian.
  .
  This package is based on Sven-Ola Tuecke's 'andromize' package.
