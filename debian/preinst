@@ -16,11 +16,9 @@ set -e
 
 case "$1" in
     install|upgrade)
-        # For systems with an XFS root filesystem, the inode for / is 128.
-        # This is a weak test, but it'll warn at least some people.
-        root_inode=$(stat -c %i /)
-        if [ $root_inode -eq 128 ]; then
-            echo "This package should only be installed in a chroot running on Android!" >&2
+        # make sure this is running in a chroot
+        if [ "$(stat -c %d:%i /)" == "$(stat -c %d:%i /proc/1/root/.)" ]; then
+            echo "This package will only install in a chroot running on Android!" >&2
             exit 1
         fi
     ;;
